@@ -1,0 +1,18 @@
+{
+  "name": "flaw",
+  "version": "1.0.0",
+  "description": "Evaluate password strength using zxcvbn",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -r ./src/json_make_html.js:app -o app/bundle.js",
+    "install": "npm install bower -g",
+    "web": "start ./index.html",
+    "postinstall": "npm run build; start ./index.html"
+  },
+  "author": "Shannon Code",
+  "license": "MIT",
+  "dependencies": {
+    "json-make-html": "^1.0.7"
+  }
+}

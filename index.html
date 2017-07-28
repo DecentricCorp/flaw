@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html>
+    <head>
+        <script src="bower_components/zxcvbn/dist/zxcvbn.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="app/bundle.js"></script>
+    </head>
+    <body>
+        <script>
+            var info, html = require('app')
+            $( document ).ready(function() {
+                var calc = function(password) {
+                    info = zxcvbn(password)                    
+                    html.calc(info, {}, function(html){
+                        $(".html_results").html(html)
+                    })
+                }
+                calcInput = function(){
+                    return calc($(".password_input").val())
+                }
+                
+                $(document).on('keyup', function(){
+                    calcInput()
+                })
+                calcInput()
+            })
+        </script>
+        <input class="password_input" value="password"/>
+        <br />
+        <div class="html_results">results:</div>
+    </body>
+</html>
